@@ -1,0 +1,29 @@
+body {
+	background-color: #FFF;
+	margin: 0;
+}
+
+#grid-container {
+	margin: 1px 0;
+}
+
+.grid-row {
+	margin: 0 0 1px 0;
+}
+
+section {
+	height: 100%;
+	width: 100%;
+}
+
+.grid {
+	display: inline-block;
+	background-color: green;
+	margin: 0 1px 0 0;
+	text-align: center;
+	height:100%;
+}
+
+.grid:hover {
+	background-color: blue;
+}
