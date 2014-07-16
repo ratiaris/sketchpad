@@ -24,9 +24,9 @@ var generateGrids = function(width, height, nbGrids) {
 		var rowHeight = Math.floor((width - nbGrids - 1)/ nbGrids);
 		var cellWidth = Math.floor((height - nbGrids - 1) / nbGrids);
 		if (rowHeight < cellWidth) {
-			rowHeight = cellWidth;
-		} else {
 			cellWidth = rowHeight;
+		} else {
+			rowHeight = cellWidth;
 		}
 		if (rowHeight < minSize) {
 			rowHeight = minSize;
@@ -72,7 +72,7 @@ var generateGrids = function(width, height, nbGrids) {
 
 $(document).ready(function() {
 	var $body = $(this.ie6 ? document.body : document); // using document in ie6 causes a crash
-	var width = $body.width() - 20;
+	var width = $body.width();
 	var height = $body.height();
 
 	var button = document.getElementById('button');
