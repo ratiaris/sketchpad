@@ -72,7 +72,7 @@ var generateGrids = function(width, height, nbGrids) {
 
 $(document).ready(function() {
 	var $body = $(this.ie6 ? document.body : document); // using document in ie6 causes a crash
-	var width = $body.width();
+	var width = $body.width() - 20;
 	var height = $body.height();
 
 	var button = document.getElementById('button');
