@@ -17,26 +17,20 @@ var resetBoxShadow = function() {
 var generateGrids = function(width, height, nbGrids) {
 	if ((nbGrids * (minSize + 1) + 1) > width) {
 		nbGrids = Math.floor(width / (minSize + 1) - 1);		
-		rowHeight = minSize;
 		cellWidth = minSize;
-		console
 	} else {
-		var rowHeight = Math.floor((width - nbGrids - 1)/ nbGrids);
-		var cellWidth = Math.floor((height - nbGrids - 1) / nbGrids);
-		if (rowHeight < cellWidth) {
-			cellWidth = rowHeight;
-		} else {
-			rowHeight = cellWidth;
-		}
-		if (rowHeight < minSize) {
-			rowHeight = minSize;
+		var cellWidth = Math.floor((width - nbGrids - 1)/ nbGrids);
+		//var rowHeight = Math.floor((height - nbGrids - 1) / nbGrids);
+		//console.log("rowHeight: " + rowHeight + " |cellWidth: " + cellWidth);
+		//rowHeight = cellWidth;
+		if (cellWidth < minSize) {
 			cellWidth = minSize;
 			//$body.width(minSize * nbGrids + nbGrids + 1);
 		}
 	}
-	console.log("Width: " + width + " |Height: " + height);
-	console.log("rowHeight: " + rowHeight + " |cellWidth: " + cellWidth);
-	console.log("nbGrids: " + nbGrids);
+	//console.log("Width: " + width + " |Height: " + height);
+	//console.log("rowHeight: " + rowHeight + " |cellWidth: " + cellWidth);
+	//console.log("nbGrids: " + nbGrids);
 	var grids = [];
 	for (var gridRowIndex = 0; gridRowIndex < nbGrids; ++gridRowIndex) {
 		grids.push('<div class="grid-row">');
@@ -49,9 +43,8 @@ var generateGrids = function(width, height, nbGrids) {
 	var section = document.getElementById('grid-container');
 	section.innerHTML = grids.join('');
 
-
     //var css = '.grid{width:' + cellWidth + 'px;}.grid-row{height:' + rowHeight +'px;}.grid-container{height:' + gridSize +'px;width:' + gridSize +'px;}';
-    var css = '.grid{width:' + cellWidth + 'px;}.grid-row{height:' + rowHeight +'px;}';
+    var css = '.grid{width:' + cellWidth + 'px;}.grid-row{height:' + cellWidth +'px;}';
     //console.log('style: ' +css);
 	var $style = $('<style type="text/css"></style>').appendTo('head'); 
     $style.html(css);
